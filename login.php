@@ -3,7 +3,7 @@ session_start();
 #This line has to be run before anything else for the session vars to work
 
 # this line will have to be changed based on where the RabbitCLIENT file is in relation to the login.php
-require('/home/matt00/Downloads/git/clnRab/rabbitmqphp_example/tstrb.php');
+require('/home/matt00/Downloads/git/clnRab/rabbitmqphp_example/addCreds.php');
 
 # this is still stock
 if (!isset($_POST))
@@ -23,7 +23,7 @@ $pw=$request["pword"];
 
 # call function in the RabbitCLIENT file which passes the data to Rabbit to be passed to the DB etc.
 #
-$lucky = doItAll();
+$lucky = doItAll($un, $pw);
 
 ?>
 
@@ -48,8 +48,8 @@ $lucky = doItAll();
 
 <table>
 
-<tr><td><input type="text" value="<?php echo $un;  ?>"></td></tr> 
-<tr><td><input type="text" value="<?php echo $lucky["message"]; ?>"></td></tr>
+<tr><td><input type="text" value="<?php echo $lucky['username'];  ?>"></td></tr> 
+<tr><td><input type="text" value="<?php echo $lucky['password']; ?>"></td></tr>
 
 </table>
 
